@@ -1,0 +1,5 @@
+gcp_credentials_file=<path-to-the-gcp-service-account-jason-file>
+gcp_project=<gcp-project-name>
+gcp_region=<gcp-region>
+gcp_keyring=<gcp-keyring-name>
+gcp_crypto_key=<gcp-crypto-key>
