@@ -33,14 +33,9 @@ chmod 0750 /var/{lib,log}/vault
 echo "Creating Vault configuration ..."
 # echo 'export VAULT_ADDR="http://localhost:8200"' | tee /etc/profile.d/vault.sh
 
-# Add the environment variables for Vault including AWS keys for auto unseal
-# somehow the AWS environment variables are not used by Vault for the seal stranza therefore all these
-# details are included in the HCL config file
+# Add the environment variables for Vault 
 tee /etc/profile.d/vault.sh << EOF
 export VAULT_ADDR="http://localhost:8200"
-# export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-# export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-# export AWS_REGION=$AWS_REGION
 EOF
 
 
