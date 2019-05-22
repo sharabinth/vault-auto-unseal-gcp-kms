@@ -1,7 +1,8 @@
 # Vault Auto Unseal Feature using Google Cloud KMS Setup
 This repo has a vagrant file to create an enterprise Vault Cluster with Consul backend.  
 Seal stanza is added to the Vault config file to setup auto unseal using Google Cloud KMS.
-Vagrant file also creates a secondary cluster with auto unseal with Google KMS using the same KMS ring.  This secondary can be configured as a DR or Performance Replication to perform further tests.
+
+Vagrant file has an option to creates a secondary cluster with auto unseal with Google KMS using the same KMS ring.  This secondary can be configured as a DR or Performance Replication to perform further tests.  Currently it is commented out so if a secondary cluster is required then uncomment the lines related to the secondary cluster.
 
 Each cluster contains 2 nodes and each note consists of a Consul Server and Vault server.  
 The configuration is used for learning purposes.  This is NOT following the reference architecture for Vault and should not be used for a Production setup.
@@ -33,7 +34,7 @@ vault2   10.100.1.12
 One of the Consul servers would become the leader.  Similarly one of Vault servers would become the Active node and the other node acts as Read Replica.
 
 ## Vault Secondary Cluster
-2 node cluster is created with each node containing Vault and Consul servers. The server details are shown below
+This code is current commented out in the ```Vagrantfile```.  If uncommented, then a 2 node cluster is created with each node containing Vault and Consul servers. The server details are shown below
 
 ```
 vault-dr1   10.100.2.11
@@ -235,4 +236,10 @@ e.g., Consul UI http://10.100.1.11:8500
 
 e.g., Vault UI http://10.100.2.11:8500 
 
+## Clean Up
 
+Use the following ```destroy``` command and answer ```y``` when prompted to delete a VM.
+
+```
+$vagrant destroy
+```
